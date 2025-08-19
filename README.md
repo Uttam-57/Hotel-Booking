@@ -1,5 +1,6 @@
 # 🏨 Hotel Booking Project
 
+
 A simple hotel booking system where users can **view hotel lists, add hotels, and post reviews**.  
 This is the initial version, with core features implemented.
 
@@ -13,14 +14,10 @@ This is the initial version, with core features implemented.
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (or React/Angular if used)  
-- **Backend**: Node.js with Express.js (or Java/Python if used)  
+- **Frontend**: HTML, CSS, JavaScript  
+- **Backend**: Node.js with Express.js  
 - **Database**: MySQL / MongoDB  
 
 ---
 
-## ⚙️ Installation & Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/hotel-booking.git
-   cd hotel-booking
+
