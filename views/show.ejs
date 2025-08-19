@@ -1,0 +1,103 @@
+<% layout('/layout/boilerplate.ejs') %>
+
+    <body class="bg-dark">
+        <div class="container mt-5 mb-4 ">
+            <div class="Detail">
+                 <div class="card-body">
+                <% if (listing.image) { %>
+                    <img src="<%= listing.image %>" class="card-img-top img-cover " alt="Listing Image">
+                    <% } %>
+                       
+                            <h1 class="card-title mb-3">
+                                <%= listing.title %>
+                            </h1>
+                            <h5 class="card-subtitle mb-2 text-muted">₹<%= listing.price %>/Night</h5>
+                            <p class="card-text"><strong>Description:</strong>
+                                <%= listing.description %>
+                            </p>
+                            <p class="card-text"><strong>Location:</strong>
+                                <%= listing.location %>
+                            </p>
+                            <p class="card-text"><strong>Country:</strong>
+                                <%= listing.country %>
+                            </p>
+                            <div class="d-flex gap-2 mb-3">
+                                <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary">Edit</a>
+                                <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST"
+                                    class="d-inline">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <h2>Reviews</h2>
+                        <div class="review">
+
+                            <%if( listing.reviews.length>0) { %>
+
+                                <% listing.reviews.forEach(review=> { %>
+                                    <div class="card   mb-3">
+                                        <div class="card-body">
+                                            <h4 class="card-title">@ <%= review.username%>
+                                            </h4>
+                                            <h5 class="card-text">Rating: <%= review.rating %>
+                                            </h5>
+                                            <p class="card-text">
+                                                <%= review.content %>
+                                            </p>
+                                            <p class="card-text"><small class="text-muted">Reviewed on
+                                                    <%= review.Date.toLocaleDateString() %>
+                                                </small></p>
+                                            <form
+                                                action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" method="post" class="d-inline ">
+                                                <button type="submit" class="btn btn-danger">Delete Review</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+                                    <% }) }%>
+                        </div>
+                        <div class="etail">
+                            <h3> Leave A Review About Hotel</h3>
+                            <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate
+                                class="needs-validation">
+                                <div>
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="review[username]"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter your username.
+                                    </div>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="rating" class="form-label">Rating</label>
+                                    <input type="range" min="1" max="5" class="form-control" id="rating"
+                                        name="review[rating]" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="content" class="form-label">Content</label>
+                                    <textarea class="form-control" id="content" name="review[content]" rows="3"
+                                        required></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter your review content.
+                                    </div>
+                                    <div class="valid-feedback">
+                                        thanks for your review!
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                            </form>
+                        </div>
+
+
+                        <div class=" card-body mt-3 ">
+                            <a href="/listings" class="btn btn-secondary">Back to All List</a>
+
+                        </div>
+            </div>
+        </div>
+    </body>

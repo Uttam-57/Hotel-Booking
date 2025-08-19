@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* listing */
+body {
+    font-family: Arial, sans-serif;
+    color: #000000;
+}
+.alllist {
+    margin: 5rem 0px 8rem 0px !important;
+    overflow: hidden;
+    display: flex !important ;
+    flex-wrap: wrap !important;
+    justify-self: center;
+   
+}
+ .alllist a {
+    text-decoration: none;
+    color: black;
+}
+
+/* navbar */
+.navbar {
+    padding: 0 !important;
+    height: 4rem ; 
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+    border-radius: 0 0 10px 10px ;
+    
+}
+/* footer */
+
+
+footer {
+    bottom: 0 !important;
+    height: 6rem;
+    width: 100% ;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.f-rights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width:  100%;
+    background-color: #eaefde !important;
+
+}
+.f-terms ,  a {
+    gap: 1rem;
+    display: flex;
+    text-decoration: none !important;
+    color: #100f0f89;
+    
+ }
+
+/* card */
+.card{
+
+    padding: 0 !important;
+    margin: 0 1rem 1rem 0 !important;
+    width: 19rem !important;
+    /* width: 100%; */
+    justify-self: center;
+    border-radius: 10px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    background-color: #c1d098;
+}
+.card-img-top.img-cover {
+    height: 17rem;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;  
+    padding-bottom: 10px !important;  
+    
+}
+
+/* show details */
+.Detail {
+    margin: 5rem 0px 10rem 0px !important;
+    padding: 1rem;
+    background-color: #c1d098;
+    border-radius: 10px;
+    width: 60%;
+    align-self: center;
+    justify-self: center;
+    color: #000;
+}
+
+.review {
+    width: flex-1;
+    height: 250px;      /* Fixed height for scroll effect */
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    overflow-y: auto;   /* Enables vertical scrolling */
+    background-color: #c1d098;
+
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+.review .card{
+    left: 1.5rem;
+
+}
+.review::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.flesh{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
