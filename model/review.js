@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const reviewSchema = new schema({
-    username: String,
+    username:{
+           type: schema.Types.ObjectId,
+           ref: 'User'
+    } ,
     content: String,
     rating: {
         type: Number,

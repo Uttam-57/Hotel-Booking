@@ -13,17 +13,18 @@
 // the body variable is passed from the route handler
 // it contains the specific content for each page
 // the script.js file is included for any custom JavaScript functionality -->
-<body class="bg-dark text-light">
+<body class="bg-dark text-light d-flex flex-column min-vh-100">
     <%- include('../include/navbar.ejs') %>
     <%- include('../include/flash.ejs') %>
-    <div class="container">
+    <div class="container flex-grow-1">
         <!-- // Main content area
         // This is where the specific page content will be injected
         // The body variable contains the HTML for the specific page -->
         <%- body %>
+        
     </div>
-    
-    <%- include('../include/footer.ejs') %>
+     <%- include('../include/footer.ejs') %>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
 </body>

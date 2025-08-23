@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 /* listing */
+
 body {
     font-family: Arial, sans-serif;
     color: #000000;
@@ -41,7 +42,7 @@ footer {
     bottom: 0 !important;
     height: 6rem;
     width: 100% ;
-    z-index: 1000;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -33,7 +33,16 @@ const listingSchema = new schema({
         type: schema.Types.ObjectId,
         ref: "Review"
     }],
+    owner:{
+        type: schema.Types.ObjectId,
+        ref: "User",
+    }
 });
+// schema have pre and post middlewares like express
+// here we are using post middleware to delete all reviews associated with a listing when the listing is deleted
+// post middleware is executed after the operation is completed
+// here we are using findOneAndDelete because findByIdAndDelete internally uses findOneAndDelete
+// pre middleware is executed before the operation is completed
 listingSchema.post("findOneAndDelete", async (listing) => {
     if (listing) {
         await Review.deleteMany({ _id: { $in: listing.reviews } });

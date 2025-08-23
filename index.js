@@ -4,14 +4,25 @@ const mongoose = require("mongoose");   // require npm i mongoose
 const dotenv = require("dotenv");// require npm i dotenv
 const path = require("path");// require npm i path
 const methodover = require("method-override"); // require npm i method-override
-const ExpressError = require("./utils/ExpressError.js");
-const listings = require("./router/listing.js");
-const reviews = require("./router/review.js");
 const session = require("express-session");// require npm i express-session
 const flash = require("connect-flash"); // require npm i connect-flash
-const port = 8080;
+const passport = require("passport"); // require npm i passport
+const LocalStrategy = require("passport-local"); // require npm i passport-local
 
-// // Importing custom error handling and async wrapper utilities
+const port = 8080;
+// Load environment variables from .env file
+dotenv.config();
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => { console.log("Connected to MongoDB"); })
+    .catch((err) => { console.error("Error connecting to MongoDB:", err); });
+
+const User = require("./model/user.js");
+
+const ExpressError = require("./utils/ExpressError.js");
+const listingsRouter = require("./router/listing.js");
+const reviewsRouter = require("./router/review.js");
+const userRouter = require("./router/user.js"); 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,30 +53,37 @@ const sessionoptions = {
 
 app.use(session(sessionoptions)); // Use session middleware to manage user sessions
 app.use(flash()); // Use flash middleware to manage flash messages
-// Load environment variables from .env file
-dotenv.config();
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL)
-    .then(() => { console.log("Connected to MongoDB"); })
-    .catch((err) => { console.error("Error connecting to MongoDB:", err); });
+
+app.use(passport.initialize()); // Initialize passport for authentication
+app.use(passport.session()); // Use passport session to manage user sessions    
+
+passport.use(new LocalStrategy(User.authenticate())); // Use LocalStrategy for user authentication
+passport.serializeUser(User.serializeUser()); // Serialize user for session support
+passport.deserializeUser(User.deserializeUser()); // Deserialize user from session 
 
 
+//flash messages middleware
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currentUser = req.user; // req.user is set by passport and contains the authenticated user
     next();
 });
 
 app.get("/", (req, res) => {
     res.redirect("/listings");
 })
-app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews);
 
 
-app.all("/*path", (req, res, next) => {
-    next(new ExpressError(404, "Page Not Found"));
-});
+//router middleware
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/", userRouter); 
+
+// error handling middleware
+// app.all("/*path", (req, res, next) => {
+//     next(new ExpressError(404, "Page Not Found"));
+// });
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "Something went wrong!" } = err;
     let stack = err.stack;
