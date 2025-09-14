@@ -5,7 +5,12 @@
             <div class="Detail" style="background-color: #c1d098(218, 232, 144);">
                 <div class="card-body">
                     <h2 class="card-title mb-4 text-center">Create a New Listing</h2>
-                    <form action="/listings" method="POST" novalidate class="needs-validation">
+                    <form 
+                     action="/listings" 
+                     method="POST"
+                     novalidate
+                     class="needs-validation"
+                     enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" id="title" name="title" class="form-control" placeholder="Add a title"
@@ -29,9 +34,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="image" class="form-label">Image URL</label>
-                            <input type="text" id="image" name="image" class="form-control"
-                                placeholder="Add an image URL">
+                            <label for="image" class="form-label">Upload Image</label>
+                            <input type="file" id="image" name="image" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>

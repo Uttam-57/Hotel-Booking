@@ -5,6 +5,7 @@ const dotenv = require("dotenv");// require npm i dotenv
 const path = require("path");// require npm i path
 const methodover = require("method-override"); // require npm i method-override
 const session = require("express-session");// require npm i express-session
+const MongoStore = require('connect-mongo');// require npm i connect-mongo
 const flash = require("connect-flash"); // require npm i connect-flash
 const passport = require("passport"); // require npm i passport
 const LocalStrategy = require("passport-local"); // require npm i passport-local
@@ -13,7 +14,7 @@ const port = 8080;
 // Load environment variables from .env file
 dotenv.config();
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.ATLAS_URI)
     .then(() => { console.log("Connected to MongoDB"); })
     .catch((err) => { console.error("Error connecting to MongoDB:", err); });
 
@@ -22,7 +23,7 @@ const User = require("./model/user.js");
 const ExpressError = require("./utils/ExpressError.js");
 const listingsRouter = require("./router/listing.js");
 const reviewsRouter = require("./router/review.js");
-const userRouter = require("./router/user.js"); 
+const userRouter = require("./router/user.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -39,8 +40,20 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
+const store = MongoStore.create({
+    mongoUrl: process.env.ATLAS_URI,
+    touchAfter: 24 * 60 * 60, // time period in seconds
+    crypto: {
+        secret: process.env.SECRET
+    }
+});
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+}
+);
 const sessionoptions = {
-    secret: "ki77uu",
+    store,
+    secret: process.env.SECRET,
     resave: false,// resave false means ki agar session me koi bhi data nahi hai to bhi session ko save nahi karega
     saveUninitialized: true,    // save uninitialized sessions true means ki session me koi bhi data nahi hai to bhi save ho jayegi
     cookie: {
@@ -78,7 +91,7 @@ app.get("/", (req, res) => {
 //router middleware
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
-app.use("/", userRouter); 
+app.use("/", userRouter);
 
 // error handling middleware
 // app.all("/*path", (req, res, next) => {

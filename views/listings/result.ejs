@@ -1,0 +1,32 @@
+<% layout('/layout/boilerplate.ejs') %>
+
+    <body>
+
+        <h1 style="color: rgb(23, 198, 139); margin-top: 80px; text-align: center;"> THIS IS THE RESULT <h1>
+                <div class="alllist row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 g-3 d-flex flex-wrap justify-content-center">
+
+                    <% resultList.forEach(listing=> { %>
+                        <div class="col" style="width: 18rem;">
+                            <a href="/listings/<%= listing._id %>">
+                                <div class="card" style="height: 25rem;">
+                                    <img src="<%= listing.image.url %>"
+                                        class="card-img-top img-fluid rounded-top border-bottom img-cover"
+                                        alt="hotel image">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= listing.title %>
+                                        </h5>
+                                        <h6>
+                                            <%= listing.country %>
+                                        </h6>
+                                        <h6 class="card-subtitle mb-2 text-muted">Price: ₹<%= listing.price %>/Night
+                                        </h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <% }) %>
+
+                </div>
+
+    </body>

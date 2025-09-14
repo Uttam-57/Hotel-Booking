@@ -1,23 +1,28 @@
 <% layout('/layout/boilerplate.ejs') %>
 
     <body>
-        <div class="alllist row row-cols-lg-4 row-cols-md-2 row-cols-sm-1  g-3">
+        <div class="alllist row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4 g-3">
             <% alllist.forEach(listing=> { %>
-                <a href="/listings/<%= listing._id %>">
-                    <div class="card " style=" height: 25rem;">
-                        <img src="<%= listing.image %>"
-                            class="card-img-top img-fluid rounded-top border-bottom img-cover" alt="hotel image">
-                        <div class="card-body  ">
-                            <h5 class="card-title">
-                                <%= listing.title %>
-                            </h5>
-                            <h6> <%=listing.country  %></h6>
-                            <h6 class="card-subtitle mb-2 text-muted">Price: ₹<%= listing.price %>/Night</h6>
+                <div class="col ">
+                    <a href="/listings/<%= listing._id %>">
+                        <div class="card " style=" height: 25rem;">
+                            <img src="<%= listing.image.url %>"
+                                class="card-img-top img-fluid rounded-top border-bottom img-cover" alt="hotel image">
+                            <div class="card-body  ">
+                                <h5 class="card-title">
+                                    <%= listing.title %>
+                                </h5>
+                                <h6>
+                                    <%=listing.country %>
+                                </h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Price: ₹<%= listing.price %>/Night</h6>
 
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <% }) %>
         </div>
 
+      
     </body>

@@ -24,10 +24,9 @@ const listingSchema = new schema({
         required: true,
     },
     image: {
-        type: String,
-        required: true,
-        default: "https://expertvagabond.com/wp-content/uploads/cheap-travel-accommodation-guide.jpg",
-        set: (v) => v === "" ? "https://expertvagabond.com/wp-content/uploads/cheap-travel-accommodation-guide.jpg" : v,
+        url: String,
+        filename: String,
+        
     },
     reviews: [{
         type: schema.Types.ObjectId,

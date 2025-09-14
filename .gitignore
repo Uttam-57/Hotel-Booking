@@ -1,24 +1,5 @@
 # Node.js dependencies
 node_modules/   
 .env
+**/.DS_Store
 
-# Dependency directories
-jspm_packages/
-# Optional npm cache directory
-.npm/
-# Optional eslint cache
-.eslintcache
-
-# OS generated files
-Thumbs.db
-ehthumbs.db
-Icon?
-Desktop.ini
-
-# IDE files
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
