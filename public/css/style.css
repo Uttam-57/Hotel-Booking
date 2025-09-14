@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* listing */
+
+.boilerplate {
+    font-family: Arial, sans-serif;
+    color: #040404;
+    background-color: #ffffff;
+}
+.main-content {
+    flex: 1 0 auto; /* Allow the content to grow and fill available space */
+    padding-left: 3rem ;
+    padding-right: 3rem ;
+}
+.alllist {
+    margin: 5rem 0px 8rem 0px !important;
+    overflow: hidden;
+    display: flex !important ;
+    flex-wrap: wrap !important;
+    justify-self: center;
+   
+}
+ .alllist a {
+    text-decoration: none;
+    color: #212529;
+}
+
+
+/* navbar */
+.navbar {
+    padding: 0 !important;
+    height: 4rem ; 
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    overflow: visible;
+    border-radius: 0 0 10px 10px ;
+    background-color: #f3f3f9 !important;
+    
+    
+}
+.navbar-brand  i {
+    color: #ff0000a7;
+    font-size: 2rem;
+}
+
+
+/* --- Corrected Search Bar Styling --- */
+
+/* 1. The outer container that creates the white pill shape */
+.search {
+    background-color: rgb(255, 255, 255);
+    padding: 0.2rem 0.3rem;
+    border-radius: 30px;
+}
+.search form {
+    display: flex;         
+    align-items: center;  
+    gap: 0.2rem;          
+}
+.search-container input {
+    width: 30rem !important;
+    border-radius: 20px !important;
+    border: none !important;
+    outline: none !important;
+    padding: 0.5rem 1rem !important;
+    height: 2.5rem;
+}
+
+.search form button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #f90000 !important;
+    border-radius: 50%;
+    height: 2.5rem;
+}
+
+.search button i{
+    font-size: 1.8rem;
+}
+
+.search-container {
+    position: relative; 
+}
+
+#suggestionsBox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 15px 15px; /* Softer radius to match */
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.suggestion-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;color: #212529;
+}
+.suggestion-item:hover {
+    background-color: #ed6736;
+
+}
+
+
+/* footer */
+
+
+footer {
+    padding: 2px;
+    bottom: 0 !important;
+    height: 6rem;
+    width: 100% !important;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.f-rights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width:  100% !important;
+    background-color: #f3f3f9 !important;
+
+}
+.f-terms ,  a {
+    gap: 1rem;
+    display: flex;
+    text-decoration: none !important;
+    color: #161616 !important;
+    
+ }
+
+/* card */
+.card{
+
+    padding: 0 !important;
+    margin: 0 1rem 1rem 0 !important;
+    width: 19rem !important;
+    /* width: 100%; */
+    justify-self: center;
+    border-radius: 10px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.card-img-top.img-cover {
+    height: 17rem;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+    
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;  
+    padding-bottom: 10px !important;  
+    background-color: #f6f3f3;
+    
+}
+
+/* show details */
+.Detail {
+    margin: 5rem 0px 10rem 0px !important;
+    padding: 1rem;
+    background-color: #f6f3f3;
+    border-radius: 10px;
+    width: 60%;
+    align-self: center;
+    justify-self: center;
+    color: #212529;
+}
+
+.review {
+    width: flex-1;
+    height: 250px;      /* Fixed height for scroll effect */
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    overflow-y: auto;   /* Enables vertical scrolling */
+    background-color: #f6f3f3;
+
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+.review .card{
+    left: 1.5rem;
+
+}
+.review::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.flesh{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
