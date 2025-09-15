@@ -2,17 +2,6 @@
 
 WanderLust is a dynamic and full-featured web application designed to simulate a real-world hotel and vacation rental booking platform. This project showcases a complete CRUD (Create, Read, Update, Delete) application, complete with user authentication, image uploads, and reviews. It's a robust demonstration of modern web development principles and practices.
 
-**Live Demo:** [Link to your deployed website here] *(If you don't have one, you can remove this line)*
-
----
-
-## 📸 Project Screenshots
-
-| Home Page | Listing Details | Create New Listing |
-| :---: | :---: | :---: |
-| ![Home Page Screenshot](path/to/your/screenshot1.png) | ![Listing Details Screenshot](path/to/your/screenshot2.png) | ![Create Listing Screenshot](path/to/your/screenshot3.png) |
-
-*(**Note:** Replace `path/to/your/screenshot.png` with the actual paths to your project images.)*
 
 ---
 
@@ -82,12 +71,10 @@ This project uses environment variables to handle sensitive information like dat
     MONGO_URL="your_mongodb_connection_string"
 
     # Cloudinary API Credentials (for image uploads)
-    CLOUDINARY_CLOUD_NAME="your_cloudinary_cloud_name"
-    CLOUDINARY_API_KEY="your_cloudinary_api_key"
-    CLOUDINARY_API_SECRET="your_cloudinary_api_secret"
+    CLOUD_NAME="your_cloudinary_cloud_name"
+    CLOUD_API_KEY="your_cloudinary_api_key"
+    CLOUD_API_SECRET="your_cloudinary_api_secret"
 
-    # Session Secret for Express Session
-    SESSION_SECRET="a_strong_random_secret_string"
     ```
 
 3.  **Fill in your personal credentials:**
@@ -99,4 +86,6 @@ This project uses environment variables to handle sensitive information like dat
 
 Once the setup is complete, you can start the development server:
 ```bash
-npm start
+node index.js
+or 
+nodemon index.js
