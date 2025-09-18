@@ -1,6 +1,6 @@
-# 🏨 WanderLust - A Full-Stack Hotel Booking Platform
+# 🏨Travenly - A Full-Stack Hotel Booking Platform
 
-WanderLust is a dynamic and full-featured web application designed to simulate a real-world hotel and vacation rental booking platform. This project showcases a complete CRUD (Create, Read, Update, Delete) application, complete with user authentication, image uploads, and reviews. It's a robust demonstration of modern web development principles and practices.
+Travenly is a dynamic and full-featured web application designed to simulate a real-world hotel and vacation rental booking platform. This project showcases a complete CRUD (Create, Read, Update, Delete) application, complete with user authentication, image uploads, and reviews. It's a robust demonstration of modern web development principles and practices.
 
 
 ---
