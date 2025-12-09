@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const Listing = require("../model/listing.js");
-const initdata = require("./data.js");
+const initdata = require("./sampleData.js");
+const dotenv = require("dotenv");
 
-mongoose.connect("mongodb+srv://db_user:1oGxrslgzDk3imdX@hotelbooking.xmp3drb.mongodb.net/?retryWrites=true&w=majority&appName=HotelBooking")
+mongoose.connect(process.env.ATLAS_URI)
     .then(() => {
         console.log("Connected to MongoDB for initialization");
     })
