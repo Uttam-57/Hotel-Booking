@@ -27,7 +27,7 @@ This project was built using the MERN stack and other modern technologies:
 -   **Authentication:** Passport.js for session-based authentication.
 -   **Image Handling:** Multer for file handling & Cloudinary for cloud-based image storage.
 -   **Architecture:** Follows the MVC (Model-View-Controller) architectural pattern.
--   **Deployment:** https://travenly.onrender.com 
+-   **Deployment:**  https://hotel-booking-c8p5.onrender.com
 
 ---
 
